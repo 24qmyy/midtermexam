@@ -1,0 +1,63 @@
+---
+title: '001'
+author: "鐘彩菱105014431"
+date: "2020/4/30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+install.packages("pacman")
+library(pacman)
+p_load(nycflights13, tidyverse)
+
+data(flights)
+data(airlines)
+data(weather)
+data(airports)
+head(flights)
+
+head(airlines)
+head(weather)
+head(flights)
+
+```{r}
+#1
+flights%>%
+filter(month==1 & day==1)
+```
+```{r}
+#2
+flights%>%
+filter(arr_delay >= 120)
+```
+```{r}
+#3
+flights%>%
+arrange(desc(dep_delay))  
+```
+```{r}
+#4
+flights%>%
+group_by(carrier)%>%summarise(mean_delay=mean(arr_delay,na.rm=TRUE))%>%
+  arrange(desc(mean_delay))
+```
+```{r}
+#5
+flights%>%
+  group_by(hour)%>%summarise(mean_delay=mean(arr_delay,na.rm=TRUE))%>%
+  arrange(desc(mean_delay))
+```
+```{r}
+#6
+flights%>%
+select(year:day, hour,origin,dest,tailnum,carrier)%>%
+head(n=100)
+```
+```{r}
+#10
+
+hist(weather$temp)
+```
