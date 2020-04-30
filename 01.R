@@ -39,16 +39,20 @@ head(n=100)
 #7
 
 #8
-  flights1<-flights%>%filter(carrier=="ALB"|carrier=="BDL"|carrier=="BTV")
-flights1%>%
-  data(flights1)
-
+  f1 <- filter(flights,carrier=="ALB"|carrier=="BDL"|carrier=="BTV")
+  data(f1)
+  f1
+  
+f1%>%
 group_by(month,carrier)%>%summarise(count=n())
  data(flights1)
+ 
 #9
+ 
 
 #10
 hist(weather$temp)
 
-
+flights%>%
+select(carrier)
 
